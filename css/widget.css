@@ -1,0 +1,242 @@
+/* ============================================
+   Circular Widget Styles
+   ============================================ */
+
+/* Widget Wrapper - Contains both message and widget */
+.widget-wrapper {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Message Bubble - Always visible, positioned to the left */
+.widget-message {
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    max-width: 220px;
+    opacity: 0;
+    animation: fadeInMessage 0.6s ease-out 0.3s forwards;
+    pointer-events: none;
+}
+
+/* Subtle fade-in animation on page load */
+@keyframes fadeInMessage {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Widget Container */
+.widget-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, cursor 0.3s ease;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    flex-shrink: 0;
+}
+
+/* Widget Base - Circular Shape */
+.widget-base {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #0e0f11;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Starry Night Background Layer */
+.widget-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Image/stary night.jpg');
+    background-size: 110%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    will-change: background-position;
+}
+
+/* Portrait Image Layer */
+.widget-portrait {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    transition: filter 0.3s ease;
+}
+
+/* Grain/Noise Overlay */
+.widget-base::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.02) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 3px
+        );
+    background-size: 100% 4px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+/* Hover State */
+.widget-container:hover .widget-base {
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.15), 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.widget-container:hover .widget-base::after {
+    opacity: 0.5;
+}
+
+.widget-container:hover .widget-portrait {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+/* Expanded State */
+.widget-container.expanded {
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90vw;
+    max-width: 600px;
+    height: 80vh;
+    max-height: 700px;
+    cursor: default;
+}
+
+.widget-container.expanded .widget-base {
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.widget-container.expanded .widget-background {
+    border-radius: 1.5rem;
+}
+
+.widget-container.expanded .widget-portrait {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+}
+
+.widget-container.expanded .widget-base::after {
+    border-radius: 1.5rem;
+}
+
+/* Body scroll lock when expanded */
+body.widget-expanded {
+    overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .widget-wrapper {
+        bottom: 1rem;
+        right: 1rem;
+        gap: 0.75rem;
+    }
+
+    .widget-message {
+        font-size: 0.8rem;
+        padding: 0.65rem 0.85rem;
+        max-width: 180px;
+    }
+
+    .widget-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .widget-container.expanded {
+        bottom: 1rem;
+        right: 1rem;
+        width: calc(100vw - 2rem);
+        height: 75vh;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .widget-wrapper {
+        bottom: 1rem;
+        right: 1rem;
+        gap: 0.65rem;
+    }
+
+    .widget-message {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.75rem;
+        max-width: 140px;
+    }
+
+    .widget-container {
+        width: 70px;
+        height: 70px;
+    }
+
+    .widget-container.expanded {
+        bottom: 1rem;
+        right: 1rem;
+        width: calc(100vw - 1rem);
+        height: 70vh;
+    }
+}
+
+/* Ensure message doesn't overflow on very small screens */
+@media (max-width: 360px) {
+    .widget-wrapper {
+        right: 0.5rem;
+        bottom: 0.5rem;
+    }
+
+    .widget-message {
+        max-width: 120px;
+        font-size: 0.7rem;
+        padding: 0.55rem 0.7rem;
+    }
+}
+

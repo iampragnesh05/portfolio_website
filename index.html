@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/widget.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <!-- Fixed Top Navigation -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="top-nav-grid">
+                <div class="nav-clock" id="clock">--:-- --</div>
+                <div class="nav-bio">
+                    <p>I'm a developer and automation specialist helping businesses turn ideas into high-performing websites, intelligent AI tools, and automated workflows.
+
+                        From custom websites and CMS platforms to AI-powered business automation, I build systems that work for your business — even when you're offline.</p>                </div>
+                <div class="nav-skills">
+                    <h3>CMS</h3>
+                    <ul>
+                        <li>WordPress</li>
+                        <li>Shopify</li>
+                        <li>Magento</li>
+                    </ul>
+                </div>
+                <div class="nav-skills">
+                    <h3>Development</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>AI agents for business automation
+                        </li>
+                        <li>AI tools development</li>
+                    </ul>
+                </div>
+                <div class="nav-contact">
+                    <a href="https://wa.me/9116955257" class="contact-link">Get in touch</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Banner Section -->
+        <section class="hero-banner">
+            <div class="hero-banner-container">
+                <!-- Top Greeting Text (Auto-changing languages) -->
+                <div class="hero-greeting">
+                    <span class="greeting-text" id="greetingText">Hello</span>
+                </div>
+                
+                <!-- Main Heading -->
+                <div class="hero-heading">
+                    <div class="hero-line">I'm</div>
+                    <div class="hero-line">Pragnesh Shrimal</div>
+                </div>
+                
+                <!-- Auto-Scrolling Hindi Text -->
+                <div class="hero-scroll-wrapper">
+                    <div class="hero-scroll-text" id="scrollText">
+                        <span class="scroll-item">मैं Websites बनाता हूँ जो Business बढ़ाती हैं</span>
+                        <span class="scroll-item">मैं AI Automation Systems बनाता हूँ</span>
+                        <span class="scroll-item">मैं Business Workflows को Automate करता हूँ</span>
+                        <span class="scroll-item">मैं High-Performance Websites बनाता हूँ</span>
+                        <!-- Duplicate for seamless loop -->
+                        <span class="scroll-item">मैं Websites बनाता हूँ जो Business बढ़ाती हैं</span>
+                        <span class="scroll-item">मैं AI Automation Systems बनाता हूँ</span>
+                        <span class="scroll-item">मैं Business Workflows को Automate करता हूँ</span>
+                        <span class="scroll-item">मैं High-Performance Websites बनाता हूँ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA and Crowd Simulator Container -->
+        <section class="cta-crowd-container">
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="container">
+                    <div class="cta-content">
+                        <h2 class="cta-heading">काम करवाना है?</h2>
+                        <p class="cta-subheading">Websites, AI automation, and digital systems designed to help your business grow faster and work smarter.</p>
+                        <div class="cta-buttons-wrapper">
+                            <a href="tel:+919116955257" class="btn-cta btn-cta-primary">कॉल करें</a>
+                            <a href="Shopify-storefront.html" class="btn-cta btn-cta-secondary">View My Work</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Crowd Simulator -->
+            <div class="crowd-simulator-section">
+                <canvas id="canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- Trust Indicators -->
+        <section class="trust-indicators">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <span class="trust-icon">✔</span>
+                        <span class="trust-text">SEO-Optimized Websites that rank better</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✔</span>
+                        <span class="trust-text">Shopify & CMS Websites for growing businesses</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✔</span>
+                        <span class="trust-text">Mobile-First, Fast & Performance Driven</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✔</span>
+                        <span class="trust-text">AI-Ready Digital Systems built for the future</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start with a theme (Shopify-style showcase) -->
+        <section class="theme-showcase-section" id="themes">
+            <div class="theme-showcase-bg">
+                <div class="theme-showcase-gradient"></div>
+                <div class="theme-showcase-watermark" aria-hidden="true">Shopify</div>
+                <div class="theme-showcase-grid" aria-hidden="true"></div>
+                <div class="theme-showcase-spotlight" aria-hidden="true"></div>
+            </div>
+            <div class="container theme-showcase-container">
+                <div class="theme-showcase-inner">
+                    <div class="theme-showcase-content">
+                        <span class="theme-showcase-label">Custom Shopify Development for Growing Brands
+                        </span>
+                        <h2 class="theme-showcase-heading">I build high-performing Shopify stores designed to support your brand’s growth.</h2>
+                        <p class="theme-showcase-desc">From store setup and custom features to performance optimization, every store is developed to create a seamless shopping experience that helps businesses convert more visitors into customers.</p>
+                        <a href="Shopify-storefront.html" class="theme-showcase-cta">View Shopify Portfolio</a>
+                    </div>
+                    <div class="theme-showcase-visual">
+                        <div class="theme-showcase-card">
+                            <div class="theme-showcase-mockup-wrap">
+                                <div class="theme-blur-orb theme-blur-orb-blue" aria-hidden="true"></div>
+                                <div class="theme-blur-orb theme-blur-orb-dark" aria-hidden="true"></div>
+                                <div class="theme-showcase-mockup">
+                                    <div class="theme-editor-window">
+                                        <div class="theme-editor-titlebar">
+                                            <span class="theme-editor-dots"></span>
+                                            <span class="theme-editor-url">Theme editor</span>
+                                        </div>
+                                        <div class="theme-editor-body">
+                                            <div class="theme-editor-sidebar"></div>
+                                            <div class="theme-editor-main">
+                                                <div class="theme-editor-canvas">
+                                                    <div class="theme-floating-card">
+                                                        <span class="theme-card-drag" aria-hidden="true">⋮⋮</span>
+                                                        <span class="theme-card-label">Featured product</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Solutions Section -->
+        <section class="ai-solutions-section" id="ai-solutions">
+            <div class="ai-solutions-bg">
+                <div class="ai-solutions-gradient"></div>
+                <div class="ai-solutions-watermark" aria-hidden="true">AI SOLUTIONS</div>
+                <div class="ai-solutions-particles" aria-hidden="true"></div>
+                <div class="ai-solutions-grid" aria-hidden="true"></div>
+                <div class="ai-solutions-spotlight" aria-hidden="true"></div>
+            </div>
+            <div class="container ai-solutions-container">
+                <div class="ai-solutions-inner">
+                    <div class="ai-solutions-content">
+                        <span class="ai-solutions-label">AI-Powered Growth</span>
+                        <h2 class="ai-solutions-heading">Smarter Automation. Real Business Results.</h2>
+                        <p class="ai-solutions-desc">I build AI chatbots and intelligent automation systems that manage customer support, automate repetitive work, and optimize workflows — helping your business operate faster, smarter, and more efficiently.</p>
+                        <div class="ai-solutions-ctas">
+                            <a href="tel:+919116955257" class="ai-solutions-btn ai-solutions-btn-primary">Contact Me</a>
+                        </div>
+                    </div>
+                    <div class="ai-solutions-visual">
+                        <div class="ai-chatbot-card">
+                            <div class="ai-chatbot-header">
+                                <div class="ai-chatbot-avatar-wrap">
+                                    <div class="ai-chatbot-avatar"></div>
+                                    <div class="ai-chatbot-avatar-glow"></div>
+                                </div>
+                                <div class="ai-chatbot-header-text">
+                                    <span class="ai-chatbot-title">AI Assistant</span>
+                                    <span class="ai-chatbot-status">Online</span>
+                                </div>
+                            </div>
+                            <div class="ai-chatbot-messages">
+                                <div class="ai-msg ai-msg-bot" data-order="1">
+                                    <span class="ai-msg-text">Hi 👋 I help businesses automate support & generate leads.</span>
+                                </div>
+                                <div class="ai-msg ai-msg-user" data-order="2">
+                                    <span class="ai-msg-text">Can you qualify leads automatically?</span>
+                                </div>
+                                <div class="ai-msg ai-msg-bot ai-msg-typing-wrap" data-order="3">
+                                    <div class="ai-typing-indicator" aria-hidden="true">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                    <span class="ai-msg-text ai-msg-reveal">Yes. I capture, filter & send high-quality leads directly to your CRM.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical SEO Section -->
+        <section class="seo-section" id="seo-audit">
+            <div class="seo-bg">
+                <div class="seo-gradient"></div>
+                <div class="seo-grid" aria-hidden="true"></div>
+                <div class="seo-dots" aria-hidden="true"></div>
+                <div class="seo-wave" aria-hidden="true"></div>
+                <div class="seo-spotlight" aria-hidden="true"></div>
+            </div>
+            <div class="container seo-container">
+                <div class="seo-inner">
+                    <div class="seo-content">
+                        <span class="seo-label">Technical SEO</span>
+                        <h2 class="seo-heading">Built for Performance & Visibility</h2>
+                        <p class="seo-desc">Optimize your website for speed, search visibility, and technical health — from Core Web Vitals to crawl optimization.</p>
+                        <a href="tel:+91-9116955257" class="seo-cta">Get SEO Audit</a>
+                    </div>
+                    <div class="seo-visual">
+                        <div class="seo-dashboard-card">
+                            <div class="seo-scan-line" aria-hidden="true"></div>
+                            <div class="seo-dashboard-url">
+                                <span class="seo-url-icon">🔍</span>
+                                <span class="seo-url-text">yourwebsite.com</span>
+                            </div>
+                            <div class="seo-audit-list">
+                                <div class="seo-audit-item" data-seo-item="1">
+                                    <span class="seo-check">✔</span>
+                                    <span class="seo-audit-text">Core Web Vitals – Optimized</span>
+                                </div>
+                                <div class="seo-audit-item" data-seo-item="2">
+                                    <span class="seo-check">✔</span>
+                                    <span class="seo-audit-text">Structured Data – Implemented</span>
+                                </div>
+                                <div class="seo-audit-item" data-seo-item="3">
+                                    <span class="seo-check">✔</span>
+                                    <span class="seo-audit-text">Mobile Responsiveness – Passed</span>
+                                </div>
+                                <div class="seo-audit-item" data-seo-item="4">
+                                    <span class="seo-check">✔</span>
+                                    <span class="seo-audit-text">Crawl Errors – 0 Issues</span>
+                                </div>
+                                <div class="seo-audit-item" data-seo-item="5">
+                                    <span class="seo-check">✔</span>
+                                    <span class="seo-audit-text">Sitemap & Robots – Configured</span>
+                                </div>
+                            </div>
+                            <div class="seo-dashboard-footer">
+                                <div class="seo-score-wrap">
+                                    <svg class="seo-score-circle" viewBox="0 0 100 100" aria-hidden="true">
+                                        <circle class="seo-score-bg" cx="50" cy="50" r="44"/>
+                                        <circle class="seo-score-fill" cx="50" cy="50" r="44" stroke-dasharray="276.46" stroke-dashoffset="165.88" data-seo-circle/>
+                                    </svg>
+                                    <div class="seo-score-text">
+                                        <span class="seo-score-value" data-seo-score>40</span>
+                                        <span class="seo-score-label">SEO Score</span>
+                                    </div>
+                                </div>
+                                <div class="seo-graph-wrap">
+                                    <svg class="seo-mini-graph" viewBox="0 0 120 40" preserveAspectRatio="none" aria-hidden="true">
+                                        <defs>
+                                            <linearGradient id="seoGraphGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#00c896"/>
+                                                <stop offset="100%" stop-color="transparent"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="seo-graph-area" d="M0 40 L0 40 L30 38 L60 28 L90 12 L120 5 L120 40 Z" fill="url(#seoGraphGrad)"/>
+                                        <path class="seo-graph-line" d="M0 40 L30 38 L60 28 L90 12 L120 5" fill="none" stroke="#00c896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="130" stroke-dashoffset="130" data-seo-graph-line/>
+                                        <polyline class="seo-graph-arrow" points="115,8 120,5 115,2" fill="none" stroke="#00c896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-seo-graph-arrow/>
+                                    </svg>
+                                    <span class="seo-graph-label">Visibility trend</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WordPress Development Section -->
+        <section class="wp-section" id="wordpress">
+            <div class="wp-bg">
+                <div class="wp-watermark" aria-hidden="true">WORDPRESS</div>
+                <div class="wp-glow" aria-hidden="true"></div>
+            </div>
+            <div class="container wp-container">
+                <div class="wp-inner">
+                    <div class="wp-content">
+                        <span class="wp-label">WordPress Development</span>
+                        <h2 class="wp-heading">High-Performance WordPress. Built to Scale.</h2>
+                        <p class="wp-desc">I design and develop custom WordPress websites optimized for speed, flexibility, and long-term growth. From business websites to scalable platforms, every build focuses on performance, usability, and easy content management.</p>
+                        <div class="wp-ctas">
+                            <a href="tel:+91-9116955257" class="wp-btn wp-btn-primary">Start Your Project</a>
+                            <a href="portfolio.html" class="wp-btn wp-btn-secondary">View Our Work</a>
+                        </div>
+                    </div>
+                    <div class="wp-visual">
+                        <div class="wp-pills">
+                            <span class="wp-pill" data-wp-pill="1">Custom Themes</span>
+                            <span class="wp-pill" data-wp-pill="2">WooCommerce</span>
+                            <span class="wp-pill" data-wp-pill="3">Plugin Customization</span>
+                            <span class="wp-pill" data-wp-pill="4">Speed Optimization</span>
+                        </div>
+                        <div class="wp-mockup-card">
+                            <div class="wp-scan-line" aria-hidden="true"></div>
+                            <div class="wp-mockup-inner">
+                                <div class="wp-mockup-header">
+                                    <div class="wp-logo-wrap">
+                                        <span class="wp-logo" aria-hidden="true">W</span>
+                                        <span class="wp-logo-glow"></span>
+                                    </div>
+                                    <span class="wp-mockup-title">Dashboard</span>
+                                </div>
+                                <div class="wp-mockup-body">
+                                    <div class="wp-mockup-sidebar"></div>
+                                    <div class="wp-mockup-main">
+                                        <div class="wp-page-builder">
+                                            <span class="wp-pb-label">Page Builder</span>
+                                            <div class="wp-pb-blocks">
+                                                <span></span><span></span><span></span>
+                                            </div>
+                                        </div>
+                                        <div class="wp-mockup-footer">
+                                            <div class="wp-score-badge">
+                                                <span class="wp-score-value">95</span>
+                                                <span class="wp-score-plus">+</span>
+                                                <span class="wp-score-label">Performance</span>
+                                                <div class="wp-speed-meter">
+                                                    <div class="wp-speed-fill" data-wp-speed></div>
+                                                </div>
+                                            </div>
+                                            <div class="wp-plugin-panel">
+                                                <span class="wp-plugin-label">Plugins</span>
+                                                <span class="wp-plugin-status">Optimized</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- GitHub Contribution Section -->
+        <section class="github-contribution-section" id="github">
+            <div class="github-section-bg" aria-hidden="true">
+                <div class="github-grid-bg"></div>
+                <div class="github-particles"></div>
+            </div>
+            <div class="container github-container">
+                <header class="github-section-header">
+                    <h2 class="github-contribution-heading">GitHub Contributions</h2>
+                    <p class="github-subtitle">Consistency builds mastery — here's my coding journey.</p>
+                </header>
+                <div class="github-main">
+                    <div class="github-card github-contribution-wrapper">
+                        <div class="github-card-glow"></div>
+                        <div class="github-graph-wrap">
+                            <img
+                                id="github-contribution-graph"
+                                src="https://ghchart.rshah.org/iampragnesh05"
+                                alt="GitHub Contribution Graph"
+                                class="github-graph-img"
+                                loading="lazy"
+                                onerror="this.src='https://github-contributions-api.deno.dev/iampragnesh05.svg?theme=dark&no-frame=true'"
+                            />
+                            <span class="github-graph-tooltip" aria-hidden="true">View full graph on GitHub for details</span>
+                        </div>
+                        <div class="github-stats-row">
+                            <span class="github-stat"><span class="github-stat-icon">🔥</span> <strong class="github-stat-value">150+</strong> Contributions this year</span>
+                            <span class="github-stat"><span class="github-stat-icon">🚀</span> <strong class="github-stat-value">25</strong> Repositories</span>
+                            <span class="github-stat"><span class="github-stat-icon">⭐</span> <strong class="github-stat-value">60</strong> Stars received</span>
+                        </div>
+                        <div class="github-cta-wrap github-profile-link">
+                            <a href="https://github.com/iampragnesh05" target="_blank" rel="noopener noreferrer" class="github-cta-btn">
+                                <svg class="github-cta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                                View Full Profile on GitHub →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="github-avatar-block">
+                        <div class="github-avatar">
+                            <img src="Image/github-avatar.jpg" alt="Developer" width="80" height="80" loading="lazy" />
+                        </div>
+                        <div class="github-chat-bubble">
+                            <p>Webdeveloper | Building scalable apps and workflow automations with Python</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section - What I Can Help You With -->
+        <section class="services-preview" id="services">
+            <div class="services-preview-bg" aria-hidden="true">
+                <div class="services-grid-bg"></div>
+                <div class="services-particles"></div>
+            </div>
+            <div class="container services-preview-container">
+                <header class="services-preview-header">
+                    <h2 class="section-title services-preview-title">What I Can Help You With</h2>
+                    <p class="services-subtitle">Focused on real results — from strategy to launch and beyond.</p>
+                </header>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 class="service-title">Business Website Development</h3>
+                        <p class="service-description">Professional websites designed to build trust, attract customers, and convert visitors into valuable leads.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="service-title">Shopify Store Development</h3>
+                        <p class="service-description">Clean, fast, and conversion-focused Shopify stores built to deliver seamless shopping experiences for customers worldwide.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="service-title">SEO-Friendly Website Setup</h3>
+                        <p class="service-description">Websites built with clean code, strong structure, and optimized performance to help your business rank better on Google.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="service-title">AI-Ready & Future-Proof Websites</h3>
+                        <p class="service-description">Modern websites built with scalable technologies and best practices, ensuring compatibility with AI tools, search engines, and future digital trends.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strong CTA Section -->
+        <section class="strong-cta" id="cta">
+            <div class="strong-cta-glow" aria-hidden="true"></div>
+            <div class="container strong-cta-container">
+                <h2 class="cta-headline">Need a Website That Actually Brings You Customers?</h2>
+                <p class="cta-text">Let's discuss your project and build a website that supports your business goals — from visibility to conversions.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+919116955257" class="cta-btn cta-btn-call">
+                        <svg class="cta-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        Call Now
+                    </a>
+                    <a href="https://wa.me/919116955257" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-whatsapp">
+                        <svg class="cta-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        WhatsApp Now
+                    </a>
+                </div>
+                <p class="cta-trust-line">Quick response. No obligation consultation.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="home-contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Talk About Your Project</h2>
+                <p class="contact-intro">Call directly or leave a message. I'll get back to you as soon as possible.</p>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="contact-detail">
+                            <span class="contact-icon">📞</span>
+                            <a href="tel:+919116955257" class="contact-link">Phone: +91-9116955257</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:iampragnesh05@gmail.com" class="contact-link">Email: iampragnesh05@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-form-card">
+                        <!-- Contact form submits to Google Apps Script → Google Sheet (see DEPLOY.md) -->
+                        <form class="contact-form" id="homeContactForm" data-submit-url="https://script.google.com/macros/s/AKfycbxdTdqV2td0xkG_KxtogaQz8uLINYzbKhXLzt0bKJ0DZYEzHFslo2AwMKdaratUi7uo/exec">
+                            <div class="form-group">
+                                <label for="homeName" class="form-label">Full Name</label>
+                                <input type="text" id="homeName" name="name" class="form-input" required>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeEmail" class="form-label">Email Address</label>
+                                <input type="email" id="homeEmail" name="email" class="form-input" required>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homePhone" class="form-label">Phone / WhatsApp Number</label>
+                                <input type="tel" id="homePhone" name="phone" class="form-input" required>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeProjectType" class="form-label">Project Type</label>
+                                <select id="homeProjectType" name="projectType" class="form-input form-select" required>
+                                    <option value="">Select project type</option>
+                                    <option value="business-website">Business Website</option>
+                                    <option value="shopify-store">Shopify Store</option>
+                                    <option value="website-redesign">Website Redesign</option>
+                                    <option value="seo-optimization">SEO Optimization</option>
+                                    <option value="custom-web-dev">Custom Web Development</option>
+                                    <option value="not-sure">Not Sure Yet</option>
+                                </select>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeBudget" class="form-label">Project Budget</label>
+                                <select id="homeBudget" name="budget" class="form-input form-select" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="under-15k">Under ₹15000</option>
+                                    <option value="15k-25k">15000 – 25000</option>
+                                    <option value="25k-50k">25000 – 50000</option>
+                                    <option value="35k-plus">35000+</option>
+                                </select>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeTimeline" class="form-label">Project Timeline</label>
+                                <select id="homeTimeline" name="timeline" class="form-input form-select" required>
+                                    <option value="">Select timeline</option>
+                                    <option value="asap">ASAP</option>
+                                    <option value="2-4-weeks">2–4 Weeks</option>
+                                    <option value="1-2-months">1–2 Months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeWebsite" class="form-label">Website or Business Link <span class="form-optional">(optional)</span></label>
+                                <input type="url" id="homeWebsite" name="website" class="form-input" placeholder="https://">
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeMessage" class="form-label">Project Description</label>
+                                <textarea id="homeMessage" name="message" class="form-input form-textarea" rows="5" required placeholder="Tell me about your project..."></textarea>
+                                <span class="form-line"></span>
+                            </div>
+                            <button type="submit" class="btn-contact-submit btn-submit">
+                                <span class="btn-text">Send Project Details</span>
+                            </button>
+                        </form>
+                        <p class="contact-form-note">I usually respond within 24 hours.</p>
+                        <div class="contact-quick-actions">
+                            <a href="tel:+919116955257" class="contact-quick-btn contact-quick-call">
+                                <svg class="contact-quick-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                Call Now
+                            </a>
+                            <a href="https://wa.me/919116955257" target="_blank" rel="noopener noreferrer" class="contact-quick-btn contact-quick-whatsapp">
+                                <svg class="contact-quick-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                WhatsApp Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>Portfolio</div>
+                    <div class="text-center">
+                        <a href="mailto:iampragnesh05@gmail.com" class="footer-link">Get in touch</a>
+                    </div>
+                    <div class="text-right">©2026</div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Mobile Floating CTA -->
+    <a href="tel:+919116955257" class="floating-cta" aria-label="Call Now">
+        <span>📞</span>
+        <span class="floating-text">Call Now</span>
+    </a>
+
+    <!-- Circular Widget -->
+    <div class="widget-wrapper">
+        <div class="widget-message">
+            There's another side, if you're curious.
+        </div>
+        <a href="personal.html" class="widget-container" aria-label="Navigate to beyound-work page">
+            <div class="widget-base">
+                <div class="widget-background"></div>
+                <img src="Image/widget.png" alt="Portrait" class="widget-portrait">
+            </div>
+        </a>
+    </div>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/crowd-simulator.js"></script>
+    <script src="js/widget.js"></script>
+    
+    <!-- Clock Fallback Script -->
+    <script>
+        // Ensure clock updates even if main script has issues
+        (function() {
+            function updateClockDisplay() {
+                const clockEl = document.getElementById('clock');
+                if (clockEl) {
+                    const now = new Date();
+                    const hours = now.getHours();
+                    const minutes = now.getMinutes().toString().padStart(2, '0');
+                    const ampm = hours >= 12 ? 'PM' : 'AM';
+                    const displayHours = hours % 12 || 12;
+                    clockEl.textContent = displayHours + ':' + minutes + ' ' + ampm;
+                }
+            }
+            
+            // Run immediately
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    updateClockDisplay();
+                    setInterval(updateClockDisplay, 1000);
+                });
+            } else {
+                updateClockDisplay();
+                setInterval(updateClockDisplay, 1000);
+            }
+        })();
+    </script>
+    
+    <!-- GitHub Contribution Graph Auto-Refresh -->
+    <script>
+        // Ensure GitHub contribution graph refreshes to show latest commits
+        (function() {
+            const graphImg = document.getElementById('github-contribution-graph');
+            if (graphImg) {
+                // Add cache-busting parameter to ensure fresh data on page load
+                const originalSrc = graphImg.src.split('?')[0];
+                const timestamp = new Date().getTime();
+                // Only update if image hasn't loaded yet or on page refresh
+                if (!graphImg.complete) {
+                    graphImg.src = originalSrc + '?t=' + timestamp;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

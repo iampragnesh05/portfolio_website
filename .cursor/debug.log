@@ -1,0 +1,5 @@
+{"location":"home.js:end","message":"home DOMContentLoaded completed","data":{},"timestamp":1772616818175,"hypothesisId":"C"}
+{"location":"main.js:DOMContentLoaded","message":"main ran","data":{"gsap":true,"st":true},"timestamp":1772616818089,"hypothesisId":"A"}
+{"location":"home.js:heroBanner","message":"hero elements","data":{"greeting":true,"heading":true,"scrollWrapper":true},"timestamp":1772616818096,"hypothesisId":"B"}
+{"location":"home.js:DOMContentLoaded","message":"home GSAP check","data":{"gsap":"object","ScrollTrigger":"function"},"timestamp":1772616818093,"hypothesisId":"A"}
+{"location":"home.js:githubSection","message":"github elements","data":{"githubHeader":true,"githubCardWrap":true,"githubAvatarBlock":true},"timestamp":1772616818126,"hypothesisId":"B"}

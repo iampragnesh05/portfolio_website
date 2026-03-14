@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal</title>
+    <!-- Preconnect to external origins for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <!-- Fonts: display=swap avoids invisible text while loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS (needed for map below the fold) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <link rel="stylesheet" href="css/personal.css">
+    <!-- Scripts: defer = non-blocking, execute in order after DOM ready -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="" defer></script>
+    <script src="js/personal.js" defer></script>
+</head>
+<body class="personal-page">
+    <!-- Solar Section -->
+    <section class="section-solar">
+      <div id="body-container" class="opening hide-UI view-2D zoom-large data-close controls-close">
+        <div id="data">
+          <a class="sun" title="sun" href="#sunspeed">Sun</a>
+          <a class="mercury" title="mercury" href="#mercuryspeed">Mercury</a>
+          <a class="venus" title="venus" href="#venusspeed">Venus</a>
+          <a class="earth active" title="earth" href="#earthspeed">Earth</a>
+          <a class="mars" title="mars" href="#marsspeed">Mars</a>
+          <a class="jupiter" title="jupiter" href="#jupiterspeed">Jupiter</a>
+          <a class="saturn" title="saturn" href="#saturnspeed">Saturn</a>
+          <a class="uranus" title="uranus" href="#uranusspeed">Uranus</a>
+          <a class="neptune" title="neptune" href="#neptunespeed">Neptune</a>
+        </div>
+        <div id="controls">
+          <label class="set-view">
+            <input type="checkbox">
+          </label>
+          <label class="set-zoom">
+            <input type="checkbox">
+          </label>
+          <label>
+            <input type="radio" class="set-speed" name="scale" checked>
+            <span>Speed</span>
+          </label>
+          <label>
+            <input type="radio" class="set-size" name="scale">
+            <span>Size</span>
+          </label>
+          <label>
+            <input type="radio" class="set-distance" name="scale">
+            <span>Distance</span>
+          </label>
+        </div>
+        <div id="universe" class="scale-stretched">
+          <div id="galaxy">
+            <div id="solar-system" class="earth">
+              <div id="mercury" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Mercury</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="venus" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Venus</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="earth" class="orbit">
+                <div class="pos">
+                  <div class="orbit">
+                    <div class="pos">
+                      <div class="moon"></div>
+                    </div>
+                  </div>
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Pragnesh</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="mars" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Mars</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="jupiter" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Jupiter</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="saturn" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <div class="ring ring-back" aria-hidden="true"></div>
+                    <div class="ring ring-front" aria-hidden="true"></div>
+                    <dl class="infos">
+                      <dt>Saturn</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="uranus" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Uranus</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="neptune" class="orbit">
+                <div class="pos">
+                  <div class="planet">
+                    <dl class="infos">
+                      <dt>Neptune</dt>
+                      <dd><span></span></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div id="sun">
+                <dl class="infos">
+                  <dt>Sun</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Places I've Visited Section -->
+    <section class="section-places">
+      <div class="places-container">
+        <!-- Left Column: Sticky Map -->
+        <div class="places-map-container" id="placesMapContainer">
+          <div class="places-map-wrapper">
+            <h2 class="places-title">Places I Have Explored</h2>
+            <div class="india-map" id="indiaMap"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Scrollable Images (nav arrows outside scroll area so they stay visible) -->
+        <div class="places-images-container">
+          <div class="places-images-scroll" id="placesImagesScroll">
+            <div class="places-images-wrapper" id="placesImagesWrapper">
+            <div class="place-image-item" data-location="Varanasi">
+              <div class="image-placeholder">
+                <img src="image/Varanasi.webp" alt="Varanasi" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Varanasi</h3>
+                  <p class="location-description">Spiritual capital and ancient city</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Tirupati Balaji">
+              <div class="image-placeholder">
+                <img src="Image/Tirupati bajali.webp" alt="Tirupati Balaji" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Tirupati Balaji</h3>
+                  <p class="location-description">Venkateswara Temple and Tirumala hills</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Pushkar">
+              <div class="image-placeholder">
+                <img src="image/Pushkar.webp" alt="Pushkar" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Pushkar</h3>
+                  <p class="location-description">Holy lake, Brahma temple and camel fair</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Nashik">
+              <div class="image-placeholder">
+                <img src="image/nashik.webp" alt="Nashik" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Nashik</h3>
+                  <p class="location-description">Wine country and Kumbh city</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Jaipur">
+              <div class="image-placeholder">
+                <img src="image/jaipur.webp" alt="Jaipur" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Jaipur</h3>
+                  <p class="location-description">Pink City, forts and palaces <p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Chennai">
+              <div class="image-placeholder">
+                <img src="image/chennai.webp" alt="Chennai" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Chennai</h3>
+                  <p class="location-description">Blue City and Mehrangarh Fort</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Jodhpur">
+              <div class="image-placeholder">
+                <img src="image/jodhpur.webp" alt="Jodhpur" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Jodhpur</h3>
+                  <p class="location-description">Golden City and Thar Desert</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Diu">
+              <div class="image-placeholder">
+                <img src="image/diu.webp" alt="Diu" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Diu</h3>
+                  <p class="location-description">City of Lakes and royal romance</p>
+                </div>
+              </div>
+            </div>
+            <div class="place-image-item" data-location="Jaiselmer">
+              <div class="image-placeholder">
+                <img src="image/jaisalmer.jpg" alt="jaisalmer" loading="lazy" class="place-image" />
+                <div class="image-overlay">
+                  <h3 class="location-name">Jaisalmer</h3>
+                  <p class="location-description">Sacred city of Mahakal</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!-- Nav arrows: sibling to scroll area so they stay on top and visible on every slide -->
+          <div class="places-nav-layer" aria-hidden="true">
+            <button class="places-nav-btn places-nav-left" id="placesNavLeft" aria-label="Previous image">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="places-nav-btn places-nav-right" id="placesNavRight" aria-label="Next image">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Books I've Read Section -->
+    <section class="section-books">
+      <div class="books-container">
+        <h2 class="books-title">Books I've Read</h2>
+        <div class="books-grid">
+          <!-- Book 1 -->
+          <div class="book-section" data-book-index="0">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/A little life.webp" alt="A little life" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">A little life</h3>
+              <p class="book-author">by Hanya Yanagihara </p>
+            </div>
+          </div>
+
+          <!-- Book 2 -->
+          <div class="book-section" data-book-index="1">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/lifafa.jpeg" alt="Lifafa" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">Lifafa - Letters of Manish & Sylph</h3>
+              <p class="book-author">by Manish & Sylph</p>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="book-section" data-book-index="2">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/october junction.jpg" alt="October Junction" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">October Junction </h3>
+              <p class="book-author">by  Divya Prakash Dubey</p>
+            </div>
+          </div>
+
+          <!-- Book 4 -->
+          <div class="book-section" data-book-index="3">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/gunahokadevta.jpeg" alt="Gunahon Ka Devta" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">Gunahon Ka Devta</h3>
+              <p class="book-author">by Dharamvir Bharati </p>
+            </div>
+          </div>
+
+          <!-- Book 5 -->
+          <div class="book-section" data-book-index="4">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/Ram.jpeg" alt="Scion of Ikshvaku" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">Ram - Scion of Ikshvaku</h3>
+              <p class="book-author">byAmish Tripathi</p>
+            </div>
+          </div>
+
+          <!-- Book 6 -->
+          <div class="book-section" data-book-index="5">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/40rulesoflove.jpg" alt="The Pragmatic Programmer" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">The forty rules of love </h3>
+              <p class="book-author">by elif shafak</p>
+            </div>
+          </div>
+
+          <!-- Book 7 -->
+          <div class="book-section" data-book-index="6">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/thinkandgrowrich.jpg" alt="thinkandgrowrich" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">Think and Grow Rich</h3>
+              <p class="book-author">by Napoleon Hill</p>
+            </div>
+          </div>
+
+          <!-- Book 8 -->
+          <div class="book-section" data-book-index="7">
+            <div class="book-cover-wrapper">
+              <div class="book-cover">
+                <div class="book-cover-placeholder"></div>
+                <img src="image/wingsoffire.jpg" alt="wingsoffire" class="book-cover-img" loading="lazy" />
+              </div>
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">Wings of Fire</h3>
+              <p class="book-author">by A. P. J. Abdul Kalam and Arun Tiwari</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music I Listen Section -->
+    <section class="section-music">
+      <div class="music-container">
+        <h2 class="music-title">A Dream That Inspires Me</h2>
+        <div class="music-player-card">
+          <div class="music-card-inner">
+            <div class="music-album-wrap">
+              <img class="music-album-cover" id="musicAlbumCover" src="" alt="Album cover" />
+            </div>
+            <h3 class="music-song-title" id="musicSongTitle">—</h3>
+            <p class="music-artist" id="musicArtist">—</p>
+            <div class="music-progress-wrap">
+              <input type="range" class="music-progress" id="musicProgress" min="0" max="100" value="0" aria-label="Playback position" />
+            </div>
+            <div class="music-time">
+              <span class="music-time-current" id="musicTimeCurrent">0:00</span>
+              <span class="music-time-total" id="musicTimeTotal">0:00</span>
+            </div>
+            <div class="music-controls">
+              <button type="button" class="music-btn music-btn-prev" id="musicBtnPrev" aria-label="Previous track">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button type="button" class="music-btn music-btn-play" id="musicBtnPlay" aria-label="Play / Pause">
+                <svg class="icon-play" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="icon-pause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+              <button type="button" class="music-btn music-btn-next" id="musicBtnNext" aria-label="Next track">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <audio id="musicAudio" preload="metadata"></audio>
+      </div>
+    </section>
+
+    <!-- The Bike I Ride Section - Gallery -->
+    <section class="section-bike">
+      <div class="bike-background">
+        <div class="bike-gif-layer"></div>
+        <div class="bike-overlay"></div>
+        <div class="bike-grain"></div>
+        <div class="bike-vignette"></div>
+      </div>
+      <div class="bike-container">
+        <h2 class="bike-gallery-title">A Glimpse of Me</h2>
+        <div class="bike-gallery" id="bikeGallery">
+          <div class="bike-gallery-item" data-index="0">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-1.webp" alt="My ride 1" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="1">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-2.webp" alt="My ride 2" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="2">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-3.webp" alt="My ride 3" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="3">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-4.webp" alt="My ride 4" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="4">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-5.webp" alt="My ride 5" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="5">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-6.webp" alt="My ride 6" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="6">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-7.webp" alt="My ride 7" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="bike-gallery-item" data-index="7">
+            <div class="bike-gallery-inner">
+              <img src="image/my-img-8.jpg" alt="My ride 8" class="bike-gallery-img" loading="lazy" />
+              <div class="bike-gallery-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Lightbox -->
+      <div class="bike-lightbox" id="bikeLightbox" aria-hidden="true">
+        <button type="button" class="bike-lightbox-close" id="bikeLightboxClose" aria-label="Close">×</button>
+        <div class="bike-lightbox-backdrop"></div>
+        <img src="" alt="" class="bike-lightbox-img" id="bikeLightboxImg" />
+      </div>
+    </section>
+
+    <!-- Professional profile widget (personal page only) -->
+    <div class="pro-widget-wrapper">
+      <div class="pro-widget-message">
+        Explore my professional side.
+      </div>
+      <a href="index.html" class="pro-widget-container" aria-label="Navigate to professional portfolio">
+        <div class="pro-widget-base">
+          <div class="pro-widget-background"></div>
+          <img src="Image/my-img-8.jpg" alt="Professional profile" class="pro-widget-portrait" loading="lazy" />
+        </div>
+      </a>
+    </div>
+
+</body>
+</html>
+
