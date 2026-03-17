@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — Shopify Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after { box-sizing: border-box; }
+
+        .pricing-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: #fff;
+        }
+
+        .pricing-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-heading {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: #111827;
+            margin: 0 0 1rem;
+        }
+
+        .pricing-subtext {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4b5563;
+            margin: 0 0 2.5rem;
+            max-width: 42ch;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .pricing-card {
+            background: #fff;
+            border: 0.5px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .pricing-card.pricing-card--featured {
+            border: 2px solid #185FA5;
+            box-shadow: 0 4px 16px rgba(24, 95, 165, 0.12);
+        }
+
+        .pricing-card.pricing-card--featured:hover {
+            border-color: #185FA5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(24, 95, 165, 0.15);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-badge--entry {
+            background: #EAF3DE;
+            color: #27500A;
+        }
+
+        .pricing-badge--featured {
+            background: #185FA5;
+            color: #fff;
+        }
+
+        .pricing-badge--flagship {
+            background: #FAEEDA;
+            color: #633806;
+        }
+
+        .pricing-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 1rem;
+            line-height: 1.35;
+        }
+
+        .pricing-price-label {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-bottom: 0.15rem;
+        }
+
+        .pricing-price {
+            font-size: 28px;
+            font-weight: 500;
+            color: #111827;
+            margin: 0 0 1.25rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pricing-features li:last-child {
+            margin-bottom: 0;
+        }
+
+        .pricing-check {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            margin-top: 1px;
+        }
+
+        .pricing-card--entry .pricing-check { color: #27500A; }
+        .pricing-card--featured .pricing-check { color: #185FA5; }
+        .pricing-card--flagship .pricing-check { color: #633806; }
+
+        .pricing-cta-banner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            background: #F5F5F3;
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 639px) {
+            .pricing-cta-banner {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .pricing-cta-btn { align-self: center; }
+        }
+
+        .pricing-cta-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .pricing-cta-headline {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 0.25rem;
+        }
+
+        .pricing-cta-subtext {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .pricing-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.65rem 1.25rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            background: #111827;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .pricing-cta-btn:hover {
+            opacity: 0.88;
+        }
+
+        .pricing-fine-print {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-align: center;
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <section class="pricing-section" id="pricing">
+        <p class="pricing-eyebrow">Pricing</p>
+        <h2 class="pricing-heading">Clear packages for every stage</h2>
+        <p class="pricing-subtext">Choose the right level of support for your store. All packages include a detailed audit and actionable recommendations.</p>
+
+        <div class="pricing-grid">
+            <!-- Card 1: Entry -->
+            <article class="pricing-card pricing-card--entry">
+                <span class="pricing-badge pricing-badge--entry">Entry</span>
+                <h3 class="pricing-card-title">Store Audit & Quick Fixes</h3>
+                <p class="pricing-price-label">Starting from</p>
+                <p class="pricing-price">₹10,000</p>
+                <ul class="pricing-features">
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Full store audit report
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Speed & SEO quick wins
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Up to 3 high-impact fixes
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Email support
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Card 2: Most Popular (Featured) -->
+            <article class="pricing-card pricing-card--featured">
+                <span class="pricing-badge pricing-badge--featured">Most popular</span>
+                <h3 class="pricing-card-title">Product Page Profit Boost</h3>
+                <p class="pricing-price-label">Starting from</p>
+                <p class="pricing-price">₹20,000</p>
+                <ul class="pricing-features">
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Everything in Entry, plus
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Product page conversion audit
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Custom sections & trust elements
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        A/B test recommendations
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        1 round of revisions
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Card 3: Flagship -->
+            <article class="pricing-card pricing-card--flagship">
+                <span class="pricing-badge pricing-badge--flagship">Flagship</span>
+                <h3 class="pricing-card-title">Revenue Recovery Package</h3>
+                <p class="pricing-price-label">Starting from</p>
+                <p class="pricing-price">₹35,000</p>
+                <ul class="pricing-features">
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Everything in Most Popular, plus
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Cart & checkout optimization
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Abandoned cart flow review
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Priority implementation support
+                    </li>
+                    <li>
+                        <svg class="pricing-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        2 rounds of revisions
+                    </li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="pricing-cta-banner">
+            <div class="pricing-cta-text">
+                <p class="pricing-cta-headline">Not sure which package fits?</p>
+                <p class="pricing-cta-subtext">Get a free 15‑minute audit and a tailored recommendation.</p>
+            </div>
+            <a href="#contact" class="pricing-cta-btn">Book a free audit →</a>
+        </div>
+
+        <p class="pricing-fine-print">Final pricing depends on store size and scope · 50% upfront, 50% on delivery · Delivery in 5–7 days</p>
+    </section>
+</body>
+</html>
